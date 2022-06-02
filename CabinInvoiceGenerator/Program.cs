@@ -5,7 +5,7 @@ Console.WriteLine("Welcome to Cab Invoice Generator");
 
 while (true)
 {
-    Console.WriteLine("Please choose the option :\n1)Calculating Fare For a Ride\n2)Calculate Aggregate fare for Multiple Rides");
+    Console.WriteLine("Please choose the option :\n1)Calculating Fare For a Ride\n2)Calculate Aggregate fare for Multiple Rides\n)3Print invoice");
     int option = Convert.ToInt16(Console.ReadLine());
     switch (option)
     {
@@ -19,6 +19,18 @@ while (true)
             MultipleRides[] rides = { new MultipleRides(20, 30), new MultipleRides(14, 34) };
             double Fare1 = IG1.TotalFare(rides);
             Console.WriteLine("The Aggregate Fare Value for All Rides = " + Fare1 + "\n");
+            break;
+        case 3:
+            InvoiceGenerator IG2 = new();
+            MultipleRides[] rides1 = { new MultipleRides(10, 20), new MultipleRides(15, 25), new MultipleRides(20, 30) };
+            double Fare2 = IG2.TotalFare(rides1);
+
+            int NumOfRides = 3;
+            double AverageFare = Fare2 / NumOfRides;
+
+            Console.WriteLine("Total Number of Rides : " + NumOfRides);
+            Console.WriteLine("The Aggregate Fare Value for All Rides :" + Fare2);
+            Console.WriteLine("Average Fare per Ride :" + AverageFare + "\n");
             break;
         default:
             Console.WriteLine("Please choose the above Options only");

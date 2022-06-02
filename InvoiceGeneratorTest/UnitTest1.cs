@@ -34,5 +34,16 @@ namespace CabinInvoiceGenerator.Test
             double Fare1 = uc2.TotalFare(rides);
             Assert.AreEqual(404, Fare1);
         }
+        [TestMethod()]
+        public void TotalFareTest3()
+        {
+            InvoiceGenerator uc3 = new();
+            MultipleRides[] rides1 = { new MultipleRides(10, 20), new MultipleRides(15, 25), new MultipleRides(20, 30) };
+            double Fare2 = uc3.TotalFare(rides1);
+
+            int NumOfRides = 3;
+            double AverageFare = Fare2 / NumOfRides;
+            Assert.AreEqual(175, AverageFare);
+        }
     }
 }
