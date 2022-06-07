@@ -4,8 +4,8 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    namespace CabinInvoiceGenerator
-    {
+namespace CabinInvoiceGenerator
+{
     public class InvoiceGenerator
     {
         public int Cost_per_km = 10;
@@ -28,6 +28,16 @@
 
 
         }
+        public void InvoiceSummary(MultipleRides[] ride)
+        {
+            foreach (MultipleRides rides in ride)
+            {
 
+                Console.WriteLine("\n" + "Distance Travelled :" + rides.Distance);
+                Console.WriteLine("Time Taken :" + rides.Time_in_minutes);
+                Console.WriteLine("Fare for ride is :" + TotalFare(rides.Distance, rides.Time_in_minutes) + "\n");
+            }
+
+        }
     }
 }
