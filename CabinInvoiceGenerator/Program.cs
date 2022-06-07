@@ -10,20 +10,20 @@ while (true)
     switch (option)
     {
         case 1:
-            InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
-            double Fare = invoiceGenerator.TotalFare(10, 5);
+            InvoiceGenerator uc1 = new InvoiceGenerator();
+            double Fare = uc1.TotalFare(10, 5);
             Console.WriteLine("Total Fare for Journey = " + Fare + "\n");
             break;
         case 2:
-            InvoiceGenerator IG1 = new();
-            MultipleRides[] rides = { new MultipleRides(20, 30), new MultipleRides(14, 34) };
-            double Fare1 = IG1.TotalFare(rides);
+            InvoiceGenerator uc2 = new();
+            MultipleRides[] rides = { new MultipleRides(10, 20), new MultipleRides(15, 25) };
+            double Fare1 = uc2.TotalFare(rides, "Premium");
             Console.WriteLine("The Aggregate Fare Value for All Rides = " + Fare1 + "\n");
             break;
         case 3:
-            InvoiceGenerator IG2 = new();
+            InvoiceGenerator uc3 = new();
             MultipleRides[] rides1 = { new MultipleRides(10, 20), new MultipleRides(15, 25), new MultipleRides(20, 30) };
-            double Fare2 = IG2.TotalFare(rides1);
+            double Fare2 = uc3.TotalFare(rides1, "Premium");
 
             int NumOfRides = 3;
             double AverageFare = Fare2 / NumOfRides;
@@ -37,7 +37,7 @@ while (true)
             Console.WriteLine("Please enter the user id :");
             string UserId = Console.ReadLine();
             MultipleRides[] rides2 = { new MultipleRides(10, 20), new MultipleRides(15, 25), new MultipleRides(20, 30) };
-            double Fare3 = uc4.TotalFare(rides2);
+            double Fare3 = uc4.TotalFare(rides2, "Normal");
 
             int numOfRides1 = 3;
             double Average = Fare3 / numOfRides1;
@@ -48,7 +48,7 @@ while (true)
             Console.WriteLine("************** Invoice **************");
             MultipleRides[] ride3 = r1.GetRide(UserId);
             Console.WriteLine("Total Number of rides : " + numOfRides1);
-            uc4.InvoiceSummary(rides2);
+            uc4.InvoiceSummary(rides2, "Normal");
             Console.WriteLine("Aggregate fare is :" + Fare3);
             Console.WriteLine("Average of all the rides :" + Average);
             Console.WriteLine("\n");
@@ -58,3 +58,5 @@ while (true)
             break;
     }
 }
+
+
